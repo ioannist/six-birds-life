@@ -1,0 +1,1377 @@
+schema_version: 1
+sources:
+- repo: ratchet-playground
+  snapshot: ratchet-playground_snapshot_v8
+  primary_evidence_files:
+  - EXPERIMENTS.md
+  - docs/canonical_theory_package.md
+  - docs/knowledge/11_deliverable_D_diagnostics.md
+  - scripts/params/**.json
+- repo: ratchet-neural
+  snapshot: ratchet-neural_snapshot_v7
+  primary_evidence_files:
+  - docs/EXPERIMENTS.md
+  - docs/canonical_theory_package.md
+  - PHASE1_NULL_QUICKSELECT_REPORT_v1.md
+  - PHASE1_NULL_SCALEUP_24x24_REPORT_v1.md
+  - scripts/params/**.json
+  - tests/contracts/**.py
+claims:
+- id: C_BASE_NULL_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P6
+  regime_comparison: null (P3=OFF,P6=OFF)
+  metrics:
+  - key: sigmaMem
+    kind: audit_proxy
+    expected: ~0
+  - key: epExactRateWindowLast
+    kind: audit_proxy
+    expected: ~0
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_BASE_NULL_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_null_balanced.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_null
+- id: C_P6_SEP_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P6
+  regime_comparison: null (P6=OFF) vs drive (P6=ON)
+  metrics:
+  - key: M6A
+    kind: audit_proxy
+    expected: '>0 under drive'
+  - key: sigmaMem
+    kind: audit_proxy
+    expected: '>0 under drive'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_P6_SEP_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_p6_drive.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p6
+- id: C_BASE_RETUNE_NULL_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P6
+  regime_comparison: retune null (P3=OFF,P6=OFF)
+  metrics:
+  - key: sigmaMem
+    kind: audit_proxy
+    expected: ~0
+  - key: M6W
+    kind: audit_proxy
+    expected: ~0
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_BASE_RETUNE_NULL_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_null_balanced.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_null
+- id: C_BASE_RETUNE_P6_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P6
+  regime_comparison: retune null vs retune drive (P6=ON)
+  metrics:
+  - key: M6A
+    kind: audit_proxy
+    expected: '>0 under drive'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_BASE_RETUNE_P6_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_p6_drive.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p6
+- id: C_BASE_RETUNE_P3P6_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P3
+  - P6
+  regime_comparison: retune P3+P6 vs retune null
+  metrics:
+  - key: p3LoopArea
+    kind: diagnostic
+    expected: '>0 under P3+P6'
+  - key: M6A
+    kind: audit_proxy
+    expected: '>0 under P6'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_BASE_RETUNE_P3P6_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_p3p6_combo_minimal.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_META_NULL_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P6
+  regime_comparison: meta null (P3=OFF,P6=OFF)
+  metrics:
+  - key: M6N
+    kind: audit_proxy
+    expected: ~0
+  - key: epExactRateWindowLast
+    kind: audit_proxy
+    expected: ~0
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_META_NULL_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/meta/meta2_null_decoupled.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/meta/meta2_null_coupled.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_null
+- id: C_META_ETA_ALIGN_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - stability_objecthood
+  certificate_role: proxy_certificate
+  primitives:
+  - P5
+  regime_comparison: meta alignment vs meta null
+  metrics:
+  - key: Sdiff
+    kind: structural_proxy
+    expected: low / aligned
+  - key: deltaEPClockRate
+    kind: diagnostic
+    expected: consistent sign
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_META_ETA_ALIGN_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/meta/meta2_null_decoupled.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/meta/meta2_null_coupled.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_viability
+- id: C_CLOCK_DRIFT_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P3
+  - P6
+  regime_comparison: clock protocol vs null
+  metrics:
+  - key: deltaEPClockRate
+    kind: diagnostic
+    expected: nonzero drift
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_CLOCK_DRIFT_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/clock_null.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/clock_p6.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_TUR_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - stability_objecthood
+  certificate_role: proxy_certificate
+  primitives:
+  - P2
+  regime_comparison: baseline vs tuned viability regime
+  metrics:
+  - key: uptimeTail
+    kind: structural_proxy
+    expected: long tail / high
+  - key: recoverySteps
+    kind: diagnostic
+    expected: bounded
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_TUR_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/clock_tur_sweep_base.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_viability
+- id: C_CODE_MAINT_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - stability_objecthood
+  certificate_role: proxy_certificate
+  primitives:
+  - P5
+  regime_comparison: maintenance on vs off
+  metrics:
+  - key: err(f=0.5)
+    kind: structural_proxy
+    expected: low
+  - key: recoverySteps
+    kind: diagnostic
+    expected: bounded
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_CODE_MAINT_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_null.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_p6_drive.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_p6_clock_gated.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_viability
+- id: C_EP_EXACT_NULL_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P6
+  regime_comparison: exact EP null check
+  metrics:
+  - key: epExactRateWindowLast
+    kind: audit_proxy
+    expected: ~0
+  - key: M6N
+    kind: audit_proxy
+    expected: ~0
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_EP_EXACT_NULL_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_null_balanced.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_null
+- id: C_TRAVERSAL_NEED_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P3
+  regime_comparison: P3 traversal enabled vs disabled
+  metrics:
+  - key: p3DispMag
+    kind: diagnostic
+    expected: '>0 when traversal active'
+  - key: loop|mean|
+    kind: diagnostic
+    expected: '>0 when traversal active'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_TRAVERSAL_NEED_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_deadline_gated_clock.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_deadline_gated_random.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_deadline_gated_static.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_TRAVERSAL_ORIENT_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P3
+  regime_comparison: P3 traversal orientation check
+  metrics:
+  - key: loop>0 frac
+    kind: diagnostic
+    expected: '>0.5'
+  - key: p3LoopArea
+    kind: diagnostic
+    expected: '>0'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_TRAVERSAL_ORIENT_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_deadline_gated_clock.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_deadline_gated_random.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/code_deadline_gated_static.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_DEADLINE_DRIFT_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P3
+  - P6
+  regime_comparison: deadline protocol vs baseline
+  metrics:
+  - key: deltaEPClockRate
+    kind: diagnostic
+    expected: nonzero drift
+  - key: p3DispMag
+    kind: diagnostic
+    expected: '>0'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_DEADLINE_DRIFT_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/deadline_fidelity_found.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/deadline_fidelity_drift.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/deadline_fidelity_random.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/deadline_fidelity_static.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_DEADLINE_CLOCK_EP_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P3
+  - P6
+  regime_comparison: deadline clock vs baseline
+  metrics:
+  - key: deltaEPClockRate
+    kind: diagnostic
+    expected: nonzero drift
+  - key: epExactRateWindowLast
+    kind: audit_proxy
+    expected: '>0 when driven'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_DEADLINE_CLOCK_EP_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/deadline_fidelity_found.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/deadline_fidelity_drift.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/deadline_fidelity_random.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  - repo: ratchet-playground
+    path: scripts/params/clock_code/deadline_fidelity_static.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_OPK_INV_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - stability_objecthood
+  certificate_role: proxy_certificate
+  primitives:
+  - P1
+  - P5
+  regime_comparison: op-coupled invariants vs baseline
+  metrics:
+  - key: Sdiff_op
+    kind: structural_proxy
+    expected: low / stable
+  - key: rhoR2Mean
+    kind: structural_proxy
+    expected: high
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_INV_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/opS_null_energy.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_higher_level
+- id: C_OPK_NULL_EP_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P6
+  regime_comparison: op-coupled null (P6=OFF)
+  metrics:
+  - key: epOpKWindowMean
+    kind: audit_proxy
+    expected: ~0
+  - key: Sdiff_op
+    kind: structural_proxy
+    expected: low
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_NULL_EP_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/opS_null_energy.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_null
+- id: C_OPK_EFFECT_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P6
+  regime_comparison: op-coupled drive vs null
+  metrics:
+  - key: DELTA_EP_C_MINUS_B
+    kind: audit_proxy
+    expected: '>0'
+  - key: epOpKWindowMean
+    kind: audit_proxy
+    expected: '>0'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_EFFECT_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/opS_null_energy.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p6
+- id: C_OPK_DRIVE_SELECT_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P6
+  regime_comparison: drive selection vs baseline
+  metrics:
+  - key: DELTA_EP_C_MINUS_B
+    kind: audit_proxy
+    expected: '>0'
+  - key: rhoR2Mean
+    kind: structural_proxy
+    expected: high
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_DRIVE_SELECT_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/opS_p6_drive_only.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p6
+- id: C_OPK_DILUTION_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P6
+  regime_comparison: drive dilution vs baseline
+  metrics:
+  - key: Sdiff_op
+    kind: structural_proxy
+    expected: reduced
+  - key: epOpKWindowMean
+    kind: audit_proxy
+    expected: reduced
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_DILUTION_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/deadline_opk_best.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p6
+- id: C_OPK_COMPOSED_R2_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - stability_objecthood
+  certificate_role: proxy_certificate
+  primitives:
+  - P5
+  regime_comparison: composed operator vs single operator
+  metrics:
+  - key: rhoR2Mean
+    kind: structural_proxy
+    expected: '>0.5'
+  - key: Sdiff_op
+    kind: structural_proxy
+    expected: stable
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_COMPOSED_R2_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/deadline_opk_best.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_higher_level
+- id: C_OPK_WEIGHT_NULL_EP_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P6
+  regime_comparison: weighted op-k null (P6=OFF)
+  metrics:
+  - key: epOpKWindowMean
+    kind: audit_proxy
+    expected: ~0
+  - key: Sdiff_op
+    kind: structural_proxy
+    expected: low
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_WEIGHT_NULL_EP_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/opS_null_energy.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_null
+- id: C_OPK_CI_EP_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P6
+  regime_comparison: confidence-interval EP vs null
+  metrics:
+  - key: epOpKWindowMean
+    kind: audit_proxy
+    expected: '>0'
+  - key: DELTA_EP_C_MINUS_B
+    kind: audit_proxy
+    expected: '>0'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_CI_EP_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/deadline_opk_best.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p6
+- id: C_OPK_REPAIR_DOM_1
+  substrate: particles
+  status: SAFE
+  certificates:
+  - stability_objecthood
+  certificate_role: proxy_certificate
+  primitives:
+  - P5
+  regime_comparison: repair domain on vs off
+  metrics:
+  - key: recoverySteps
+    kind: diagnostic
+    expected: bounded
+  - key: missFrac
+    kind: diagnostic
+    expected: low
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_REPAIR_DOM_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/deadline_opk_best.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_viability
+- id: C_P3_OBS_1
+  substrate: particles
+  status: SUGGESTIVE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P3
+  regime_comparison: P3 observation on vs off
+  metrics:
+  - key: p3LoopArea
+    kind: diagnostic
+    expected: '>0'
+  - key: p3DispMag
+    kind: diagnostic
+    expected: '>0'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_P3_OBS_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_p3_pump_minimal.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_P3P6_LONG_1
+  substrate: particles
+  status: SUGGESTIVE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P3
+  - P6
+  regime_comparison: long-horizon P3+P6 vs baseline
+  metrics:
+  - key: p3LoopArea
+    kind: diagnostic
+    expected: sustained >0
+  - key: M6A
+    kind: audit_proxy
+    expected: sustained >0
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_P3P6_LONG_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_p3p6_combo_minimal.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_BASE_RETUNE_P3_1
+  substrate: particles
+  status: SUGGESTIVE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P3
+  regime_comparison: retune P3 vs retune null
+  metrics:
+  - key: p3DispMag
+    kind: diagnostic
+    expected: '>0'
+  - key: loop|mean|
+    kind: diagnostic
+    expected: '>0'
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_BASE_RETUNE_P3_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/base_p3_pump_minimal.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_p3
+- id: C_OPK_HIER_1
+  substrate: particles
+  status: SUGGESTIVE
+  certificates:
+  - novelty_extension
+  certificate_role: proxy_certificate
+  primitives:
+  - P5
+  regime_comparison: hierarchical op-k vs flat
+  metrics:
+  - key: rhoR2Mean
+    kind: structural_proxy
+    expected: increases with depth
+  - key: Sdiff_op
+    kind: structural_proxy
+    expected: structured / nontrivial
+  evidence:
+  - repo: ratchet-playground
+    path: EXPERIMENTS.md
+    anchor: C_OPK_HIER_1
+    note: Claim entry and result summary.
+  - repo: ratchet-playground
+    path: docs/knowledge/11_deliverable_D_diagnostics.md
+    anchor: Diagnostics
+    note: Metric definitions and audit/diagnostic context.
+  - repo: ratchet-playground
+    path: scripts/params/op_coupling/deadline_opk_best.json
+    anchor: null
+    note: Preset parameters for the claim run.
+  paper_section_hint: results_higher_level
+- id: N_PH1_NULL_EP_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P6
+  regime_comparison: null (Phase 1)
+  metrics:
+  - key: epMicroRateWindowLast
+    kind: audit_proxy
+    expected: ~0
+  - key: accept_last_m
+    kind: diagnostic
+    expected: baseline / stable
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 1
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: PHASE1_NULL_QUICKSELECT_REPORT_v1.md
+    anchor: null
+    note: Phase 1 quickselect null report.
+  - repo: ratchet-neural
+    path: PHASE1_NULL_SCALEUP_24x24_REPORT_v1.md
+    anchor: null
+    note: Phase 1 scaleup null report.
+  - repo: ratchet-neural
+    path: tests/contracts/test_contract_null_ep.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_null
+- id: N_PH2_P6_SEPARABILITY_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P6
+  regime_comparison: Phase 2 K-drive vs null
+  metrics:
+  - key: ep_rate_by_kernel_proposal_window
+    kind: audit_proxy
+    expected: K-drive mean > 0
+  - key: mismatch_abs_mean
+    kind: diagnostic
+    expected: lower under matched drive
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 2
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/params/phase2_drive_k_balanced_v6.json
+    anchor: null
+    note: Phase 2 K-drive preset.
+  - repo: ratchet-neural
+    path: tests/contracts/test_contract_phase2_drive_k_separability.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  - repo: ratchet-neural
+    path: tests/contracts/test_contract_p6_separability.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_p6
+- id: N_PH3_P3_PROTOCOL_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - directionality_audit
+  certificate_role: diagnostic
+  primitives:
+  - P3
+  regime_comparison: Phase 3 protocol vs baseline
+  metrics:
+  - key: rel_change
+    kind: diagnostic
+    expected: '>= 0.15 (contract gate)'
+  - key: strobe_current_l2_window
+    kind: diagnostic
+    expected: abs(protocol-control)/control >= 0.15 (contract gate)
+  - key: strobe_symgap_window
+    kind: diagnostic
+    expected: changes vs control (reported; sign not fixed)
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 3
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: tests/contracts/test_contract_phase3_p3_protocol_changes_strobe_currents.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  - repo: ratchet-neural
+    path: tests/contracts/test_contract_phase3_strobe_signature_nondegenerate.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_p3
+- id: N_PH7_EQ_STABILITY_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - stability_objecthood
+  certificate_role: certificate
+  primitives:
+  - P5
+  regime_comparison: Phase 7 equilibrium vs baseline
+  metrics:
+  - key: recovery_frac
+    kind: structural_proxy
+    expected: high
+  - key: spike
+    kind: diagnostic
+    expected: bounded
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 7
+    note: Phase summary table and results.
+  paper_section_hint: results_viability
+- id: N_PH9P5_PAIRED_HIGHWAY_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - stability_objecthood
+  certificate_role: proxy_certificate
+  primitives:
+  - P5
+  regime_comparison: Phase 9.5 paired realloc vs baseline
+  metrics:
+  - key: realloc_paired
+    kind: structural_proxy
+    expected: high
+  - key: best_realloc
+    kind: structural_proxy
+    expected: high
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 9.5
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: tests/contracts/test_contract_phase9p5_paired_attention_highway.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_higher_level
+- id: N_PH11_MOTIF_INVENTORY_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - novelty_extension
+  certificate_role: proxy_certificate
+  primitives:
+  - P4
+  regime_comparison: Phase 11 motifs vs baseline
+  metrics:
+  - key: coverage_pre
+    kind: structural_proxy
+    expected: high
+  - key: jsd_pre_hazard
+    kind: diagnostic
+    expected: '>0'
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 11
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase11_motif_token_discovery_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_higher_level
+- id: N_PH12_MOTIF_SYNTAX_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - novelty_extension
+  certificate_role: proxy_certificate
+  primitives:
+  - P4
+  regime_comparison: Phase 12 motif syntax vs baseline
+  metrics:
+  - key: prop_score
+    kind: structural_proxy
+    expected: high
+  - key: jsd_trans_pre_hazard
+    kind: diagnostic
+    expected: '>0'
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 12
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase12_motif_proto_syntax_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_higher_level
+- id: N_PH17_DIRECTIONAL_SEMANTICS_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - novelty_extension
+  certificate_role: proxy_certificate
+  primitives:
+  - P4
+  regime_comparison: Phase 17 semantics vs baseline
+  metrics:
+  - key: focus_delta_inject
+    kind: audit_proxy
+    expected: '>0'
+  - key: focus_p_inject
+    kind: diagnostic
+    expected: <0.05
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 17
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase17_directional_motif_semantics_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_higher_level
+- id: N_PH18_DICTIONARY_SEMANTICS_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - novelty_extension
+  certificate_role: proxy_certificate
+  primitives:
+  - P4
+  regime_comparison: Phase 18 dictionary semantics vs baseline
+  metrics:
+  - key: dict_delta
+    kind: audit_proxy
+    expected: '>0'
+  - key: dict_p
+    kind: diagnostic
+    expected: <0.05
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 18
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase18_motif_dictionary_semantics_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_higher_level
+- id: N_PH19_PHRASE_SEMANTICS_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - novelty_extension
+  certificate_role: proxy_certificate
+  primitives:
+  - P4
+  regime_comparison: Phase 19 phrase semantics vs baseline
+  metrics:
+  - key: alignment
+    kind: audit_proxy
+    expected: '>0'
+  - key: alignment_p
+    kind: diagnostic
+    expected: <0.05
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 19
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase19_motif_phrase_semantics_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_higher_level
+- id: N_PH20_PHRASE_DECODE_1
+  substrate: neural
+  status: SAFE
+  certificates:
+  - novelty_extension
+  certificate_role: proxy_certificate
+  primitives:
+  - P4
+  regime_comparison: Phase 20 phrase decode vs baseline
+  metrics:
+  - key: token_acc
+    kind: audit_proxy
+    expected: '>baseline'
+  - key: token_p
+    kind: diagnostic
+    expected: <0.05
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 20
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase20_phrase_decode_proto_syntax_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_higher_level
+- id: N_PH7_DRIVE_PICK_1
+  substrate: neural
+  status: SUGGESTIVE
+  certificates:
+  - directionality_audit
+  certificate_role: proxy_certificate
+  primitives:
+  - P6
+  regime_comparison: Phase 7 drive pick vs baseline
+  metrics:
+  - key: spike
+    kind: diagnostic
+    expected: reduced
+  - key: recovery_frac
+    kind: structural_proxy
+    expected: improved
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 7
+    note: Phase summary table and results.
+  paper_section_hint: results_p6
+- id: N_PH9_HAZARD_HIGHWAYS_1
+  substrate: neural
+  status: SUGGESTIVE
+  certificates:
+  - stability_objecthood
+  certificate_role: proxy_certificate
+  primitives:
+  - P5
+  regime_comparison: Phase 9 hazard highways vs baseline
+  metrics:
+  - key: coverage_hazard
+    kind: structural_proxy
+    expected: high
+  - key: jsd_pre_hazard
+    kind: diagnostic
+    expected: '>0'
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 9
+    note: Phase summary table and results.
+  paper_section_hint: results_higher_level
+- id: N_PH13_SETPOINT_MEMORY_1
+  substrate: neural
+  status: NEGATIVE
+  certificates:
+  - stability_objecthood
+  certificate_role: negative
+  primitives:
+  - P5
+  regime_comparison: Phase 13 setpoint memory attempt vs baseline (fails gate; no coupled advantage)
+  metrics:
+  - key: advantage
+    kind: diagnostic
+    expected: '<=0'
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: "## Phase 13"
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase13_pattern_memory_setpoints_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: results_viability
+- id: N_NEG_PH10_CLOCKWORK_1
+  substrate: neural
+  status: NEGATIVE
+  certificates:
+  - directionality_audit
+  certificate_role: negative
+  primitives:
+  - P6
+  regime_comparison: Phase 10 clockwork vs baseline
+  metrics:
+  - key: strobe_symgap_window
+    kind: diagnostic
+    expected: ~0
+  - key: strobe_current_l2_window
+    kind: diagnostic
+    expected: ~0
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: Phase 10
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase10_clockwork_fabric_search_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: negative_results
+- id: N_NEG_PH10B_EXCITABLE_1
+  substrate: neural
+  status: NEGATIVE
+  certificates:
+  - directionality_audit
+  certificate_role: negative
+  primitives:
+  - P6
+  regime_comparison: Phase 10B excitable vs baseline
+  metrics:
+  - key: rel_change
+    kind: diagnostic
+    expected: ~0
+  - key: strobe_current_l2_window
+    kind: diagnostic
+    expected: ~0
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: "## Phase 10b"
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase10b_excitable_state_upgrade_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: negative_results
+- id: N_NEG_PH14_16_EARLY_SEM_1
+  substrate: neural
+  status: NEGATIVE
+  certificates:
+  - novelty_extension
+  certificate_role: negative
+  primitives:
+  - P4
+  regime_comparison: Phase 14-16 early semantics vs baseline
+  metrics:
+  - key: alignment
+    kind: audit_proxy
+    expected: ~0
+  - key: dict_delta
+    kind: audit_proxy
+    expected: ~0
+  evidence:
+  - repo: ratchet-neural
+    path: docs/EXPERIMENTS.md
+    anchor: "## Phase 14"
+    note: Phase summary table and results.
+  - repo: ratchet-neural
+    path: scripts/phase14_motif_semantics_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  - repo: ratchet-neural
+    path: scripts/phase15_motif_semantics_routing_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  - repo: ratchet-neural
+    path: scripts/phase16_causal_motif_semantics_v1.py
+    anchor: null
+    note: Contract test or script backing the claim.
+  paper_section_hint: negative_results

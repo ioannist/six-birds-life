@@ -1,0 +1,12 @@
+relation,identifier,scheme,resource_type,bibkey,title
+Cites,10.5281/zenodo.18365949,DOI,other,tsiokos2026sixbirds,Six Birds: Foundations of Emergence Calculus
+Cites,10.1016/j.tig.2025.04.002,DOI,publication-article,hartl2025evolutionmake,What does evolution make? Learning in living lineages and machines
+Cites,10.48550/arXiv.2601.14096,DOI,publication-preprint,hartl2026remapping,Remapping and navigation of an embedding space via error minimization: a fundamental organizational principle of cognition in natural and artificial systems
+Cites,10.25911/TA58-P428,DOI,publication-thesis,bennett2025consciousmachines,How To Build Conscious Machines
+Cites,10.1088/0034-4885/75/12/126001,DOI,publication-article,Seifert2012,"Stochastic thermodynamics, fluctuation theorems and molecular machines"
+Cites,10.1023/A:1004589714161,DOI,publication-article,LebowitzSpohn1999,A Gallavotti--Cohen-Type Symmetry in the Large Deviation Functional for Stochastic Dynamics
+Cites,10.1103/RevModPhys.48.571,DOI,publication-article,Schnakenberg1976,Network theory of microscopic and macroscopic behavior of master equation systems
+Cites,978-0-471-24195-9,ISBN,publication-book,CoverThomas2006,Elements of Information Theory
+Cites,10.1103/PhysRevE.85.041133,DOI,publication-article,AltanerEtAl2012,"Network representations of non-equilibrium steady states: Cycle decompositions, symmetries and dominant paths"
+Cites,10.1088/1751-8121/adbc52,DOI,publication-article,BauerSeifertVanderMeer2025,Stroboscopic measurements in Markov networks: exact generator reconstruction vs.\ thermodynamic inference
+Cites,10.1109/TIT.2011.2159052,DOI,publication-article,Merhav2011,Data Processing Theorems and the Second Law of Thermodynamics
